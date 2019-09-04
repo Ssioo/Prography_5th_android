@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
     private Fragment calls, contacts, chats;
     private MenuItem prevMenuItem;
+    private Toolbar toolbar;
 
 
     @Override
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         /* findViewById */
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         viewPager = findViewById(R.id.viewpager);
+        toolbar = findViewById(R.id.toolbar_main);
 
         /* Bottom NavigationView 액션 */
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -70,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         /* ViewPager Initializing */
-        calls = new Fragment_calls();
+        calls = new Fragment_studios();
         chats = new Fragment_films();
         contacts = new Fragment_contacts();
         ArrayList<Fragment> fragements = new ArrayList<>();

@@ -1,5 +1,7 @@
 package com.pa1.prography_5th_android;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -14,6 +17,8 @@ import java.util.ArrayList;
 public class CustomRecyclerView extends RecyclerView.Adapter<CustomRecyclerView.CustomItemViewHolder> {
 
     private ArrayList<JSONData> jsondata;
+    private boolean delayEnterAnimation = true;
+    private boolean animationsLocked = false;
 
     public CustomRecyclerView(ArrayList<JSONData> jsondata) {
         this.jsondata = jsondata;
@@ -23,6 +28,22 @@ public class CustomRecyclerView extends RecyclerView.Adapter<CustomRecyclerView.
     @Override
     public CustomItemViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recyclerview_item, viewGroup, false);
+
+        /* 리스트 드로우 Animation */
+        if (!animationsLocked) {
+            view.setTranslationY(100);
+            view.setAlpha(0.f);
+            view.animate().translationY(0).alpha(1.f).setStartDelay(delayEnterAnimation ? 20 * (i) : 0)
+                    .setInterpolator(new DecelerateInterpolator(2.f))
+                    .setDuration(300)
+                    .setListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            animationsLocked = true;
+                        }
+                    })
+                    .start();
+        }
         return new CustomItemViewHolder(view);
     }
 

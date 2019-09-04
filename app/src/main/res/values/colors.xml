@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#279542</color>
+    <color name="totoro_green">#208C3B</color>
+    <color name="totoro_lightgreen">#34BF57</color>
+    <color name="totoro_light">#EBF2DC</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 </resources>
