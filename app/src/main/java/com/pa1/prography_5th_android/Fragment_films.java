@@ -25,14 +25,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class Fragment_chats extends Fragment {
+public class Fragment_films extends Fragment {
     private RecyclerView recyclerView;
     private CustomRecyclerView recycleradapter;
     private Retrofit retrofit;
     private ApiService apiService;
     private ArrayList<JSONData> Datalist = new ArrayList<>();
 
-    public Fragment_chats() { }
+    public Fragment_films() { }
 
     @Nullable
     @Override

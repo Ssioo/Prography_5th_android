@@ -8,23 +8,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.MenuItem;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
 import java.util.ArrayList;
-
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
@@ -85,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
         /* ViewPager Initializing */
         calls = new Fragment_calls();
-        chats = new Fragment_chats();
+        chats = new Fragment_films();
         contacts = new Fragment_contacts();
         ArrayList<Fragment> fragements = new ArrayList<>();
         fragements.add(calls);

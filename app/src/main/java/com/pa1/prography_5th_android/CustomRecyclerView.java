@@ -1,5 +1,6 @@
 package com.pa1.prography_5th_android;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -42,7 +43,7 @@ public class CustomRecyclerView extends RecyclerView.Adapter<CustomRecyclerView.
         private TextView release_date;
 
 
-        public CustomItemViewHolder(@NonNull View itemView) {
+        public CustomItemViewHolder(@NonNull final View itemView) {
             super(itemView);
 
             num = itemView.findViewById(R.id.item_num);
@@ -53,7 +54,17 @@ public class CustomRecyclerView extends RecyclerView.Adapter<CustomRecyclerView.
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    /* intent 예정 */
+                    /* DetailActivity intent 호출 */
+                    Intent intent = new Intent(itemView.getContext(), DetailActivity.class);
+                    int pos = getAdapterPosition();
+                    intent.putExtra("data_num", jsondata.get(pos).getNum());
+                    intent.putExtra("data_title", jsondata.get(pos).getTitle());
+                    intent.putExtra("data_description", jsondata.get(pos).getDescription());
+                    intent.putExtra("data_director", jsondata.get(pos).getDirector());
+                    intent.putExtra("data_producer", jsondata.get(pos).getProducer());
+                    intent.putExtra("data_releasedate", jsondata.get(pos).getRelease_date());
+                    intent.putExtra("data_rtscore", jsondata.get(pos).getRt_score());
+                    itemView.getContext().startActivity(intent);
                 }
             });
         }

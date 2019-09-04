@@ -6,8 +6,8 @@
         android:title="CALLS" />
     <item
         android:id="@+id/navigation_menu2"
-        android:icon="@drawable/ic_chat"
-        android:title="CHATS" />
+        android:icon="@drawable/ic_film"
+        android:title="FILMS" />
     <item
         android:id="@+id/navigation_menu3"
         android:icon="@drawable/ic_perm_contact_calendar_black_24dp"
